@@ -93,18 +93,17 @@
                 {name:"Rei", share:0.1}
             ]
         };
-
-        // Use environment variables for Firebase config and App ID
+// Use environment variables for Firebase config and App ID
         const firebaseConfig = {
-  apiKey: "AIzaSyDYfl0TiMFHceE88GkHcl7XHDli-LSbArk",
-  authDomain: "a037b08f.firebaseapp.com",
-  projectId: "a037b08f",
-  storageBucket: "a037b08f.firebasestorage.app",
-  messagingSenderId: "485696187373",
-  appId: "1:485696187373:web:6f07feb0fd1a3654ae15e4",
-  measurementId: "G-VQ9Y9HSYTJ"
-};
-
+            apiKey: "AIzaSyDYfl0TiMFHceE88GkHcl7XHDli-LSbArk",
+            authDomain: "a037b08f.firebaseapp.com",
+            projectId: "a037b08f",
+            storageBucket: "a037b08f.firebasestorage.app",
+            messagingSenderId: "485696187373",
+            appId: "1:485696187373:web:f9b40596c0d5eab5ae15e4",
+            measurementId: "G-QPJ29TZBKV"
+        };
+        const appId = firebaseConfig.appId || 'sweechip-default';
 
         // --- Firestore Collection Paths ---
         const DAILY_RECORDS_COLLECTION = `artifacts/${appId}/public/data/daily_records`;
@@ -2281,4 +2280,5 @@
 
 </body>
 </html>
+
 
