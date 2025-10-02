@@ -93,7 +93,8 @@
                 {name:"Rei", share:0.1}
             ]
         };
-// Use environment variables for Firebase config and App ID
+
+        // Use environment variables for Firebase config and App ID
         const firebaseConfig = {
             apiKey: "AIzaSyDYfl0TiMFHceE88GkHcl7XHDli-LSbArk",
             authDomain: "a037b08f.firebaseapp.com",
@@ -103,7 +104,9 @@
             appId: "1:485696187373:web:f9b40596c0d5eab5ae15e4",
             measurementId: "G-QPJ29TZBKV"
         };
-        
+        const appId = firebaseConfig.appId || 'sweechip-default';
+
+
         // --- Firestore Collection Paths ---
         const DAILY_RECORDS_COLLECTION = `artifacts/${appId}/public/data/daily_records`;
         const INVENTORY_DOC_PATH = `artifacts/${appId}/public/data/inventory/current_stock`;
@@ -209,12 +212,8 @@
                 db = getFirestore(app);
                 auth = getAuth(app);
                 
-                // Sign in with custom token if available, otherwise anonymously
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
+                // For a public tracker hosted on GitHub, we will always sign in anonymously.
+                await signInAnonymously(auth);
 
                 onAuthStateChanged(auth, (user) => {
                     if (user) {
@@ -2279,6 +2278,5 @@
 
 </body>
 </html>
-
 
 
